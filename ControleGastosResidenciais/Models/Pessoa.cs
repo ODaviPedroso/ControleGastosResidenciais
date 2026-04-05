@@ -1,0 +1,19 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FinanceiroApi.Models
+{
+    public class Pessoa
+    {
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
+
+        [Required]
+        [MaxLength(200)]
+        public string Nome { get; set; } = string.Empty;
+
+        [Range(0, 150)]
+        public int Idade { get; set; }
+        public List<Transacao> Transacoes { get; set; } = new();
+    }
+}
+
