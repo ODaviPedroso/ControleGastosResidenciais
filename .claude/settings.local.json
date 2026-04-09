@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dotnet ef:*)"
+      "Bash(dotnet ef:*)",
+      "Bash(Get-Process -Name \"ControleGastosRes*\" -ErrorAction SilentlyContinue)",
+      "Bash(Stop-Process -Force)",
+      "Bash(Start-Sleep -Seconds 1)"
     ]
   }
 }
