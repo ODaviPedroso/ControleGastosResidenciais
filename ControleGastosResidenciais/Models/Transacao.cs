@@ -2,7 +2,7 @@
 
 namespace FinanceiroApi.Models
 {
-    public class Transacao
+    public class Transacao : IEntidade
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();

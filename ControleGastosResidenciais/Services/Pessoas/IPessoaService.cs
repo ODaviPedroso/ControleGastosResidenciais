@@ -1,6 +1,9 @@
-﻿namespace ControleGastosResidenciais.Services.Pessoas
+using ControleGastosResidenciais.Services.Base;
+using FinanceiroApi.Models;
+
+namespace ControleGastosResidenciais.Services.Pessoas
 {
-    public interface IPessoaService
+    public interface IPessoaService : IBaseService<Pessoa>
     {
     }
 }

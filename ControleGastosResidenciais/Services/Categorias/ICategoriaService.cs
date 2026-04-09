@@ -1,6 +1,9 @@
-﻿namespace ControleGastosResidenciais.Services.Categorias
+using ControleGastosResidenciais.Services.Base;
+using FinanceiroApi.Models;
+
+namespace ControleGastosResidenciais.Services.Categorias
 {
-    public interface ICategoriaService
+    public interface ICategoriaService : IBaseService<Categoria>
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace FinanceiroApi.Models
 {
-    public class Pessoa
+    public class Pessoa : IEntidade
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
