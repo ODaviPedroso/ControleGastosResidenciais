@@ -1,6 +1,7 @@
 using ControleGastosResidenciais.Data;
 using ControleGastosResidenciais.Services.Categorias;
 using ControleGastosResidenciais.Services.Pessoas;
+using ControleGastosResidenciais.Services.Relatorios;
 using ControleGastosResidenciais.Services.Transasoes;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,12 +20,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IPessoaService, PessoaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
+builder.Services.AddScoped<IRelatorioService, RelatorioService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Popula o banco com dados de exemplo ao iniciar em ambiente de desenvolvimento
 if (app.Environment.IsDevelopment())
 {
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    DatabaseSeeder.Seed(db);
+
     app.MapOpenApi();
 }
 

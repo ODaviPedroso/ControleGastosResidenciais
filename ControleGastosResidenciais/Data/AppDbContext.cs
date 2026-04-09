@@ -17,12 +17,7 @@ namespace ControleGastosResidenciais.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pessoa>()
-                .HasMany(p => p.Transacoes)
-                .WithOne(t => t.Pessoa)
-                .HasForeignKey(t => t.PessoaId)
-                .OnDelete(DeleteBehavior.Cascade);
-
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
     }

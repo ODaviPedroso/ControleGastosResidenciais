@@ -1,9 +1,9 @@
-﻿using FinanceiroApi.Models;
+using ControleGastosResidenciais.Services.Base;
+using FinanceiroApi.Models;
 
 namespace ControleGastosResidenciais.Services.Transasoes
 {
-    public interface ITransacaoService
+    public interface ITransacaoService : IBaseService<Transacao>
     {
-        Task<Transacao> Criar(Transacao transacao);
     }
 }
